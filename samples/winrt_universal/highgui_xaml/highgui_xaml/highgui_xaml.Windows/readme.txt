@@ -1,3 +1,5 @@
+hello world test
+
 notes for OpenCV WinRT implementation:
 
 cvMain() in main.cpp
