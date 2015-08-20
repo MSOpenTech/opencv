@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Resources">
+      <UniqueIdentifier>c49e9093-788f-43a2-88be-39c5aca1a467</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tga;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="pch.cpp" />
+    <ClCompile Include="ImgProc.cpp" />
+    <ClCompile Include="Mat.cpp" />
+    <ClCompile Include="VideoIo.cpp" />
+    <ClCompile Include="CascadeClassifier.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="pch.h" />
+    <ClInclude Include="ImgProc.h" />
+    <ClInclude Include="Mat.h" />
+    <ClInclude Include="VideoIo.h" />
+    <ClInclude Include="CascadeClassifier.h" />
+    <ClInclude Include="RTTypes.h" />
+  </ItemGroup>
+</Project>

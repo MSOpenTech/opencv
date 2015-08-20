@@ -39,6 +39,10 @@
 //
 //M*/
 
+#ifdef WINRT_WMF
+CvCapture* cvCreateCameraCapture_WinRT(int index);
+#endif
+
 #ifndef __VIDEOIO_H_
 #define __VIDEOIO_H_
 
@@ -115,6 +119,7 @@ CvVideoWriter* cvCreateVideoWriter_Win32( const char* filename, int fourcc,
 CvVideoWriter* cvCreateVideoWriter_VFW( const char* filename, int fourcc,
                                         double fps, CvSize frameSize, int is_color );
 CvCapture* cvCreateCameraCapture_DShow( int index );
+
 CvCapture* cvCreateCameraCapture_MSMF( int index );
 CvCapture* cvCreateFileCapture_MSMF (const char* filename);
 CvVideoWriter* cvCreateVideoWriter_MSMF( const char* filename, int fourcc,
@@ -186,9 +191,6 @@ namespace cv
 
     Ptr<IVideoCapture> createMotionJpegCapture(const String& filename);
     Ptr<IVideoWriter> createMotionJpegWriter( const String& filename, double fps, Size frameSize, bool iscolor );
-
-    Ptr<IVideoCapture> createGPhoto2Capture(int index);
-    Ptr<IVideoCapture> createGPhoto2Capture(const String& deviceName);
 };
 
 #endif /* __VIDEOIO_H_ */

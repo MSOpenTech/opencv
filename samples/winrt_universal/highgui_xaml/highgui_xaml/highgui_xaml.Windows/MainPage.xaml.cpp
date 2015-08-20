@@ -7,9 +7,7 @@
 #include "MainPage.xaml.h"
 
 // nb. path relative to modules/videoio/include
-#include "../src/cap_winrt_bridge.hpp"
-#include "../src/cap_winrt_video.hpp"
-#include "opencv2/videoio/cap_winrt.hpp"
+#include "../src/cap_winrt_highgui.hpp"
 
 using namespace highgui_xaml;
 
@@ -39,7 +37,7 @@ using namespace Windows::UI::Xaml::Media::Imaging;
 
 namespace highgui_xaml
 {
-using namespace cv;
+
 
     MainPage::MainPage()
     {
@@ -50,8 +48,8 @@ using namespace cv;
         Window::Current->VisibilityChanged += ref new Windows::UI::Xaml::WindowVisibilityChangedEventHandler(this, &highgui_xaml::MainPage::OnVisibilityChanged);
 
         // set XAML elements
-        VideoioBridge::getInstance().cvImage = cvImage;
-        //VideoioBridge::getInstance().cvSlider = cvSlider;
+        HighguiBridge::getInstance().cvImage = cvImage;
+        //HighguiBridge::getInstance().cvSlider = cvSlider;
 
         // handler
         //cvSlider->ValueChanged +=
@@ -67,32 +65,32 @@ using namespace cv;
             {
             case OPEN_CAMERA:
                 {
-                    int device = VideoioBridge::getInstance().getDeviceIndex();
-                    int width = VideoioBridge::getInstance().getWidth();
-                    int height = VideoioBridge::getInstance().getHeight();
+                    int device = HighguiBridge::getInstance().deviceIndex;
+                    int width = HighguiBridge::getInstance().width;
+                    int height = HighguiBridge::getInstance().height;
 
                     // buffers must alloc'd on UI thread
-                    VideoioBridge::getInstance().allocateBuffers(width, height);
+                    allocateBuffers(width, height);
 
                     // nb. video capture device init must be done on UI thread;
                     // code is located in the OpenCV Highgui DLL, class Video
                     if (!grabberStarted)
                     {
                         grabberStarted = true;
-						Video::getInstance().initGrabber(device, width, height);
+                        initGrabber(device, width, height);
                     }
                 }
                 break;
             case CLOSE_CAMERA:
-                Video::getInstance().closeGrabber();
+                closeGrabber();
                 break;
             case UPDATE_IMAGE_ELEMENT:
                 {
                     // copy output Mat to WBM
-                     Video::getInstance().CopyOutput();
+                    copyOutput();
 
                     // set XAML image element with image WBM
-                    VideoioBridge::getInstance().cvImage->Source = VideoioBridge::getInstance().backOutputBuffer;
+                    HighguiBridge::getInstance().cvImage->Source = HighguiBridge::getInstance().backOutputBuffer;
                 }
                 break;
             //case SHOW_TRACKBAR:
@@ -100,8 +98,6 @@ using namespace cv;
             //    break;
             }
         });
-
-
     }
 
     //void MainPage::cvSlider_ValueChanged(Platform::Object^ sender, Windows::UI::Xaml::Controls::Primitives::RangeBaseValueChangedEventArgs^ e)
@@ -119,7 +115,7 @@ IAsyncActionWithProgress<int>^ MainPage::TaskWithProgressAsync()
 {
     return create_async([this](progress_reporter<int> reporter)
     {
-        VideoioBridge::getInstance().setReporter(reporter);
+        HighguiBridge::getInstance().setReporter(reporter);
         cvMain();
     });
 }
@@ -130,20 +126,32 @@ void highgui_xaml::MainPage::OnVisibilityChanged(Platform::Object ^sender,
     if (e->Visible)
     {
         // only start the grabber if the camera was opened in OpenCV
-        if (VideoioBridge::getInstance().backInputPtr != nullptr)
+        if (HighguiBridge::getInstance().backInputPtr != nullptr)
         {
             if (grabberStarted) return;
 
-            int device = VideoioBridge::getInstance().getDeviceIndex();
-            int width = VideoioBridge::getInstance().getWidth();
-            int height = VideoioBridge::getInstance().getHeight();
+            int device = HighguiBridge::getInstance().deviceIndex;
+            int width = HighguiBridge::getInstance().width;
+            int height = HighguiBridge::getInstance().height;
 
-             Video::getInstance().initGrabber(device, width, height);
+            initGrabber(device, width, height);
         }
     }
     else
     {
         grabberStarted = false;
-		Video::getInstance().closeGrabber();
+        closeGrabber();
     }
+}
+
+
+void highgui_xaml::MainPage::comboBox_SelectionChanged(Platform::Object^ sender, Windows::UI::Xaml::Controls::SelectionChangedEventArgs^ e)
+{
+	extern int ProcessingMethodIndex;
+
+	char output[1024] = { 0 };
+	(void)sprintf_s(output, 1024, "New selection [%d]\n", MyComboBox->SelectedIndex);
+	OutputDebugStringA(output);
+
+	ProcessingMethodIndex = MyComboBox->SelectedIndex;	
 }

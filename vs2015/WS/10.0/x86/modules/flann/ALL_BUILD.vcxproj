@@ -10,7 +10,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGUID>{DCD1CAAE-E77A-4A01-9D43-7E65770EC593}</ProjectGUID>
+    <ProjectGUID>{F76E3275-546F-469F-B376-B29005C3123F}</ProjectGUID>
     <ApplicationType>Windows Store</ApplicationType>
     <DefaultLanguage>en-US</DefaultLanguage>
     <ApplicationTypeRevision>8.2</ApplicationTypeRevision>
@@ -80,7 +80,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="$(OCV2015_ROOT)/vs2015/WS/10.0/x86/modules/flann/opencv_flann.vcxproj">
-      <Project>1867E2B2-C670-45F3-A9B7-0D11DFE27998</Project>
+      <Project>61864D1A-8DCA-4B2A-AF5D-2C50C4C54FF5</Project>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

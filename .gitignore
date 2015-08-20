@@ -22,3 +22,9 @@ CMakeCache.txt
 *.suo
 *.log
 *.tlog
+*.lib
+*.pdb
+*.exp
+_Resharper*
+debug/
+retail/

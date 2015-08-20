@@ -10,7 +10,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGUID>{41083FF2-0F8E-4900-B4B1-6720BE86D8AB}</ProjectGUID>
+    <ProjectGUID>{4E05F566-3892-4933-B37C-2A570EAA1637}</ProjectGUID>
     <ApplicationType>Windows Store</ApplicationType>
     <DefaultLanguage>en-US</DefaultLanguage>
     <ApplicationTypeRevision>8.2</ApplicationTypeRevision>
@@ -73,7 +73,7 @@
       <Optimization>Disabled</Optimization>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>$(OCV2015_ROOT)/modules/imgcodecs/src/precomp.hpp</PrecompiledHeaderFile>
-      <ProcessorNumber>1</ProcessorNumber>
+      <ProcessorNumber>4</ProcessorNumber>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <WarningLevel>Level4</WarningLevel>
@@ -128,7 +128,7 @@
       <Optimization>MaxSpeed</Optimization>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>$(OCV2015_ROOT)/modules/imgcodecs/src/precomp.hpp</PrecompiledHeaderFile>
-      <ProcessorNumber>1</ProcessorNumber>
+      <ProcessorNumber>4</ProcessorNumber>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <WarningLevel>Level4</WarningLevel>
@@ -224,31 +224,31 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="$(OCV2015_ROOT)/vs2015/WS/10.0/x64/ZERO_CHECK.vcxproj">
-      <Project>F7C2BCF6-9BE2-4272-AAD9-6075F4430F5C</Project>
+      <Project>68675D48-774B-4D1C-893D-6063ADB3724A</Project>
     </ProjectReference>
     <ProjectReference Include="$(OCV2015_ROOT)/vs2015/WS/10.0/x64/3rdparty/libjasper/libjasper.vcxproj">
-      <Project>695D788F-A096-4054-9CE5-A0D9BB018980</Project>
+      <Project>72C30DDA-782E-466F-B4BE-96119F7B144F</Project>
     </ProjectReference>
     <ProjectReference Include="$(OCV2015_ROOT)/vs2015/WS/10.0/x64/3rdparty/libjpeg/libjpeg.vcxproj">
-      <Project>35A7860F-9915-49FD-9F2A-F9B4AA5E0965</Project>
+      <Project>97036D41-6A79-4A05-A0F8-23C962205D1E</Project>
     </ProjectReference>
     <ProjectReference Include="$(OCV2015_ROOT)/vs2015/WS/10.0/x64/3rdparty/libpng/libpng.vcxproj">
-      <Project>3C383E1D-6C58-4A4B-B78B-2779354C8C7B</Project>
+      <Project>A58A11E5-F89B-404D-BAD0-57AB9AD51B80</Project>
     </ProjectReference>
     <ProjectReference Include="$(OCV2015_ROOT)/vs2015/WS/10.0/x64/3rdparty/libtiff/libtiff.vcxproj">
-      <Project>9C5867C5-F9DE-449F-95AE-01B64A9AEB50</Project>
+      <Project>F06EB69C-CC45-466A-9B76-FFE580246F8A</Project>
     </ProjectReference>
     <ProjectReference Include="$(OCV2015_ROOT)/vs2015/WS/10.0/x64/modules/core/opencv_core.vcxproj">
-      <Project>AD3AD579-91EB-4492-AA03-F78B231B429D</Project>
+      <Project>06249B14-7756-4B11-A8BA-CC9A5D370C5B</Project>
     </ProjectReference>
     <ProjectReference Include="$(OCV2015_ROOT)/vs2015/WS/10.0/x64/modules/hal/opencv_hal.vcxproj">
-      <Project>770A6C51-203A-4D29-8B14-656B1E11BAA2</Project>
+      <Project>B2C85755-D08F-4AB1-A0D1-FE169016286E</Project>
     </ProjectReference>
     <ProjectReference Include="$(OCV2015_ROOT)/vs2015/WS/10.0/x64/modules/imgproc/opencv_imgproc.vcxproj">
-      <Project>D9E6EAA4-E2FC-45A7-B693-7D13D189DD06</Project>
+      <Project>98CE20FA-3398-436C-AAE1-A365DDDD6179</Project>
     </ProjectReference>
     <ProjectReference Include="$(OCV2015_ROOT)/vs2015/WS/10.0/x64/3rdparty/zlib/zlib.vcxproj">
-      <Project>D7456BF1-74CC-4BB0-B8BA-C80E20EAEFDC</Project>
+      <Project>D26C45BC-459C-4E90-98F5-4B9AD1A7715A</Project>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

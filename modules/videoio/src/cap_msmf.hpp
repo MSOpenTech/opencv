@@ -603,6 +603,11 @@ public:
     ComPtr() throw()
     {
     }
+    ComPtr(int nNull) throw()
+    {
+        assert(nNull == 0);
+        p = NULL;
+    }
     ComPtr(T* lp) throw()
     {
         p = lp;
@@ -633,6 +638,13 @@ public:
     {
         return p.operator==(pT);
     }
+    // For comparison to NULL
+    bool operator==(int nNull) const
+    {
+        assert(nNull == 0);
+        return p.operator==(NULL);
+    }
+
     bool operator!=(_In_opt_ T* pT) const throw()
     {
         return p.operator!=(pT);
@@ -3111,7 +3123,7 @@ public:
         HRESULT hr = CheckShutdown();
 
         if (SUCCEEDED(hr)) {
-            if (!m_spClock) {
+            if (m_spClock == NULL) {
                 hr = MF_E_NO_CLOCK; // There is no presentation clock.
             } else {
                 // Return the pointer to the caller.

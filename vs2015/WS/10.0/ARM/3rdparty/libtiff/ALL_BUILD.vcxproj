@@ -10,7 +10,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGUID>{13F8A5AC-A24B-4911-853E-49B9CF5A5C7D}</ProjectGUID>
+    <ProjectGUID>{7C2DFAB7-43BE-47B6-980D-2CE545F6E80C}</ProjectGUID>
     <ApplicationType>Windows Store</ApplicationType>
     <DefaultLanguage>en-US</DefaultLanguage>
     <ApplicationTypeRevision>8.2</ApplicationTypeRevision>
@@ -68,11 +68,11 @@
   <ItemGroup>
     <CustomBuild Include="..\..\..\..\..\..\3rdparty\libtiff\CMakeLists.txt">
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">Building Custom Rule $(OCV2015_ROOT)/3rdparty/libtiff/CMakeLists.txt</Message>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">$(OCV2015_ROOT)/3rdparty/libtiff/CMakeLists.txt;$(OCV2015_ROOT)\3rdparty\libtiff\CMakeLists.txt;C:\Program Files (x86)\CMake\share\cmake-3.2\Modules\CheckFunctionExists.cmake;C:\Program Files (x86)\CMake\share\cmake-3.2\Modules\CheckIncludeFile.cmake;C:\Program Files (x86)\CMake\share\cmake-3.2\Modules\CheckIncludeFile.c.in;C:\Program Files (x86)\CMake\share\cmake-3.2\Modules\CheckIncludeFile.c.in;C:\Program Files (x86)\CMake\share\cmake-3.2\Modules\CheckIncludeFile.c.in;C:\Program Files (x86)\CMake\share\cmake-3.2\Modules\CheckFunctionExists.c;C:\Program Files (x86)\CMake\share\cmake-3.2\Modules\CheckFunctionExists.c;C:\Program Files (x86)\CMake\share\cmake-3.2\Modules\CheckIncludeFile.c.in;C:\Program Files (x86)\CMake\share\cmake-3.2\Modules\CheckIncludeFile.c.in;C:\Program Files (x86)\CMake\share\cmake-3.2\Modules\CheckIncludeFile.c.in;$(OCV2015_ROOT)\3rdparty\libtiff\tif_config.h.cmakein;$(OCV2015_ROOT)\3rdparty\libtiff\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">$(OCV2015_ROOT)/3rdparty/libtiff/CMakeLists.txt;$(OCV2015_ROOT)\3rdparty\libtiff\CMakeLists.txt;C:\Users\Evgeny\Documents\CMake\Modules\CheckFunctionExists.cmake;C:\Users\Evgeny\Documents\CMake\Modules\CheckIncludeFile.cmake;C:\Users\Evgeny\Documents\CMake\Modules\CheckIncludeFile.c.in;C:\Users\Evgeny\Documents\CMake\Modules\CheckIncludeFile.c.in;C:\Users\Evgeny\Documents\CMake\Modules\CheckIncludeFile.c.in;C:\Users\Evgeny\Documents\CMake\Modules\CheckFunctionExists.c;C:\Users\Evgeny\Documents\CMake\Modules\CheckFunctionExists.c;C:\Users\Evgeny\Documents\CMake\Modules\CheckIncludeFile.c.in;C:\Users\Evgeny\Documents\CMake\Modules\CheckIncludeFile.c.in;C:\Users\Evgeny\Documents\CMake\Modules\CheckIncludeFile.c.in;$(OCV2015_ROOT)\3rdparty\libtiff\tif_config.h.cmakein;$(OCV2015_ROOT)\3rdparty\libtiff\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">$(OCV2015_ROOT)\vs2015\WS\10.0\ARM\3rdparty\libtiff\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">Building Custom Rule $(OCV2015_ROOT)/3rdparty/libtiff/CMakeLists.txt</Message>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">$(OCV2015_ROOT)/3rdparty/libtiff/CMakeLists.txt;$(OCV2015_ROOT)\3rdparty\libtiff\CMakeLists.txt;C:\Program Files (x86)\CMake\share\cmake-3.2\Modules\CheckFunctionExists.cmake;C:\Program Files (x86)\CMake\share\cmake-3.2\Modules\CheckIncludeFile.cmake;C:\Program Files (x86)\CMake\share\cmake-3.2\Modules\CheckIncludeFile.c.in;C:\Program Files (x86)\CMake\share\cmake-3.2\Modules\CheckIncludeFile.c.in;C:\Program Files (x86)\CMake\share\cmake-3.2\Modules\CheckIncludeFile.c.in;C:\Program Files (x86)\CMake\share\cmake-3.2\Modules\CheckFunctionExists.c;C:\Program Files (x86)\CMake\share\cmake-3.2\Modules\CheckFunctionExists.c;C:\Program Files (x86)\CMake\share\cmake-3.2\Modules\CheckIncludeFile.c.in;C:\Program Files (x86)\CMake\share\cmake-3.2\Modules\CheckIncludeFile.c.in;C:\Program Files (x86)\CMake\share\cmake-3.2\Modules\CheckIncludeFile.c.in;$(OCV2015_ROOT)\3rdparty\libtiff\tif_config.h.cmakein;$(OCV2015_ROOT)\3rdparty\libtiff\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">$(OCV2015_ROOT)/3rdparty/libtiff/CMakeLists.txt;$(OCV2015_ROOT)\3rdparty\libtiff\CMakeLists.txt;C:\Users\Evgeny\Documents\CMake\Modules\CheckFunctionExists.cmake;C:\Users\Evgeny\Documents\CMake\Modules\CheckIncludeFile.cmake;C:\Users\Evgeny\Documents\CMake\Modules\CheckIncludeFile.c.in;C:\Users\Evgeny\Documents\CMake\Modules\CheckIncludeFile.c.in;C:\Users\Evgeny\Documents\CMake\Modules\CheckIncludeFile.c.in;C:\Users\Evgeny\Documents\CMake\Modules\CheckFunctionExists.c;C:\Users\Evgeny\Documents\CMake\Modules\CheckFunctionExists.c;C:\Users\Evgeny\Documents\CMake\Modules\CheckIncludeFile.c.in;C:\Users\Evgeny\Documents\CMake\Modules\CheckIncludeFile.c.in;C:\Users\Evgeny\Documents\CMake\Modules\CheckIncludeFile.c.in;$(OCV2015_ROOT)\3rdparty\libtiff\tif_config.h.cmakein;$(OCV2015_ROOT)\3rdparty\libtiff\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">$(OCV2015_ROOT)\vs2015\WS\10.0\ARM\3rdparty\libtiff\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">false</LinkObjects>
     </CustomBuild>
@@ -81,7 +81,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="$(OCV2015_ROOT)/vs2015/WS/10.0/ARM/3rdparty/libtiff/libtiff.vcxproj">
-      <Project>CB665024-EBDD-4F85-9CE9-7E04B2C1BBEC</Project>
+      <Project>2BA197D5-6A84-4C28-AA32-ACDD5DFFA7E6</Project>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

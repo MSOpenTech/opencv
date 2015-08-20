@@ -10,7 +10,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGUID>{163EA34E-0BB8-4435-9779-90929ABCC8E2}</ProjectGUID>
+    <ProjectGUID>{BF07F0B1-7945-493B-9A44-FBFFAC9C623B}</ProjectGUID>
     <ApplicationType>Windows Store</ApplicationType>
     <DefaultLanguage>en-US</DefaultLanguage>
     <ApplicationTypeRevision>8.2</ApplicationTypeRevision>
@@ -67,7 +67,7 @@
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <Optimization>Disabled</Optimization>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
-      <ProcessorNumber>1</ProcessorNumber>
+      <ProcessorNumber>4</ProcessorNumber>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <WarningLevel>Level4</WarningLevel>
@@ -106,7 +106,7 @@
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <Optimization>MaxSpeed</Optimization>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
-      <ProcessorNumber>1</ProcessorNumber>
+      <ProcessorNumber>4</ProcessorNumber>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <WarningLevel>Level4</WarningLevel>
@@ -146,26 +146,13 @@
     <ClInclude Include="..\..\..\..\..\..\modules\videoio\include\opencv2\videoio\videoio.hpp" />
     <ClInclude Include="..\..\..\..\..\..\modules\videoio\include\opencv2\videoio\cap_ios.h" />
     <ClInclude Include="..\..\..\..\..\..\modules\videoio\include\opencv2\videoio\videoio_c.h" />
-    <ClInclude Include="..\..\..\..\..\..\modules\videoio\include\opencv2\videoio\cap_winrt.hpp" />
     <ClInclude Include="..\..\..\..\..\..\modules\videoio\src\precomp.hpp" />
-    <ClInclude Include="..\..\..\..\..\..\modules\videoio\src\cap_winrt_capture.hpp" />
-    <ClInclude Include="..\..\..\..\..\..\modules\videoio\src\cap_winrt_bridge.hpp" />
-    <ClInclude Include="..\..\..\..\..\..\modules\videoio\src\cap_winrt_video.hpp" />
-    <ClInclude Include="..\..\..\..\..\..\modules\videoio\src\cap_winrt\MFIncludes.hpp" />
-    <ClInclude Include="..\..\..\..\..\..\modules\videoio\src\cap_winrt\CaptureFrameGrabber.hpp" />
-    <ClInclude Include="..\..\..\..\..\..\modules\videoio\src\cap_winrt\MediaSink.hpp" />
-    <ClInclude Include="..\..\..\..\..\..\modules\videoio\src\cap_winrt\MediaStreamSink.hpp" />
     <ClInclude Include="..\..\cvconfig.h" />
     <ClInclude Include="..\..\opencv2\opencv_modules.hpp" />
     <ClCompile Include="..\..\..\..\..\..\modules\videoio\src\cap.cpp" />
     <ClCompile Include="..\..\..\..\..\..\modules\videoio\src\cap_images.cpp" />
     <ClCompile Include="..\..\..\..\..\..\modules\videoio\src\cap_mjpeg_encoder.cpp" />
     <ClCompile Include="..\..\..\..\..\..\modules\videoio\src\cap_mjpeg_decoder.cpp" />
-    <ClCompile Include="..\..\..\..\..\..\modules\videoio\src\cap_winrt_capture.cpp" />
-    <ClCompile Include="..\..\..\..\..\..\modules\videoio\src\cap_winrt_bridge.cpp" />
-    <ClCompile Include="..\..\..\..\..\..\modules\videoio\src\cap_winrt_video.cpp" />
-    <ClCompile Include="..\..\..\..\..\..\modules\videoio\src\cap_winrt\CaptureFrameGrabber.cpp" />
-    <ClCompile Include="..\..\..\..\..\..\modules\videoio\src\cap_winrt\MediaStreamSink.cpp" />
     <ClCompile Include="..\..\..\..\..\..\modules\videoio\src\cap_cmu.cpp" />
     <ClCompile Include="opencv_videoio_pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
@@ -176,7 +163,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="$(OCV2015_ROOT)/vs2015/WS/10.0/x64/ZERO_CHECK.vcxproj">
-      <Project>F7C2BCF6-9BE2-4272-AAD9-6075F4430F5C</Project>
+      <Project>68675D48-774B-4D1C-893D-6063ADB3724A</Project>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

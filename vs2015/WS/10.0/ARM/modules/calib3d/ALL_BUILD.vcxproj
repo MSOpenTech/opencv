@@ -10,7 +10,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGUID>{13F8A5AC-A24B-4911-853E-49B9CF5A5C7D}</ProjectGUID>
+    <ProjectGUID>{7C2DFAB7-43BE-47B6-980D-2CE545F6E80C}</ProjectGUID>
     <ApplicationType>Windows Store</ApplicationType>
     <DefaultLanguage>en-US</DefaultLanguage>
     <ApplicationTypeRevision>8.2</ApplicationTypeRevision>
@@ -81,7 +81,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="$(OCV2015_ROOT)/vs2015/WS/10.0/ARM/modules/calib3d/opencv_calib3d.vcxproj">
-      <Project>BF56DD13-6883-46BD-AA42-EB07B93652F6</Project>
+      <Project>04E98E35-2B6E-435B-B8DB-F71DE3EB6383</Project>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

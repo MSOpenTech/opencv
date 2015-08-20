@@ -10,7 +10,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGUID>{489BE6DF-4192-4AAA-9A99-490A6C48FCFA}</ProjectGUID>
+    <ProjectGUID>{5C4368BA-6730-4DB2-8232-30942AE920B3}</ProjectGUID>
     <ApplicationType>Windows Store</ApplicationType>
     <DefaultLanguage>en-US</DefaultLanguage>
     <ApplicationTypeRevision>8.2</ApplicationTypeRevision>
@@ -67,7 +67,7 @@
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <Optimization>Disabled</Optimization>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
-      <ProcessorNumber>1</ProcessorNumber>
+      <ProcessorNumber>4</ProcessorNumber>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <WarningLevel>Level4</WarningLevel>
@@ -106,7 +106,7 @@
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <Optimization>MaxSpeed</Optimization>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
-      <ProcessorNumber>1</ProcessorNumber>
+      <ProcessorNumber>4</ProcessorNumber>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <WarningLevel>Level4</WarningLevel>
@@ -142,13 +142,13 @@
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="..\..\CMakeFiles\53386682123898e835d9081944f1d672\opencl_kernels_video.cpp.rule">
+    <CustomBuild Include="..\..\CMakeFiles\1bfab789500ea8f04bfdb7f77a4e463d\opencl_kernels_video.cpp.rule">
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Generating opencl_kernels_video.cpp, opencl_kernels_video.hpp</Message>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(OCV2015_ROOT)/vs2015/WS/10.0/x64/CMakeFiles/53386682123898e835d9081944f1d672/opencl_kernels_video.cpp.rule;$(OCV2015_ROOT)\modules\video\src\opencl\bgfg_mog2.cl;$(OCV2015_ROOT)\modules\video\src\opencl\optical_flow_farneback.cl;$(OCV2015_ROOT)\modules\video\src\opencl\optical_flow_tvl1.cl;$(OCV2015_ROOT)\modules\video\src\opencl\pyrlk.cl;$(OCV2015_ROOT)\cmake\cl2cpp.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(OCV2015_ROOT)/vs2015/WS/10.0/x64/CMakeFiles/1bfab789500ea8f04bfdb7f77a4e463d/opencl_kernels_video.cpp.rule;$(OCV2015_ROOT)\modules\video\src\opencl\bgfg_mog2.cl;$(OCV2015_ROOT)\modules\video\src\opencl\optical_flow_farneback.cl;$(OCV2015_ROOT)\modules\video\src\opencl\optical_flow_tvl1.cl;$(OCV2015_ROOT)\modules\video\src\opencl\pyrlk.cl;$(OCV2015_ROOT)\cmake\cl2cpp.cmake;%(AdditionalInputs)</AdditionalInputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(OCV2015_ROOT)\vs2015\WS\10.0\x64\modules\video\opencl_kernels_video.cpp;$(OCV2015_ROOT)\vs2015\WS\10.0\x64\modules\video\opencl_kernels_video.hpp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Generating opencl_kernels_video.cpp, opencl_kernels_video.hpp</Message>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(OCV2015_ROOT)/vs2015/WS/10.0/x64/CMakeFiles/53386682123898e835d9081944f1d672/opencl_kernels_video.cpp.rule;$(OCV2015_ROOT)\modules\video\src\opencl\bgfg_mog2.cl;$(OCV2015_ROOT)\modules\video\src\opencl\optical_flow_farneback.cl;$(OCV2015_ROOT)\modules\video\src\opencl\optical_flow_tvl1.cl;$(OCV2015_ROOT)\modules\video\src\opencl\pyrlk.cl;$(OCV2015_ROOT)\cmake\cl2cpp.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(OCV2015_ROOT)/vs2015/WS/10.0/x64/CMakeFiles/1bfab789500ea8f04bfdb7f77a4e463d/opencl_kernels_video.cpp.rule;$(OCV2015_ROOT)\modules\video\src\opencl\bgfg_mog2.cl;$(OCV2015_ROOT)\modules\video\src\opencl\optical_flow_farneback.cl;$(OCV2015_ROOT)\modules\video\src\opencl\optical_flow_tvl1.cl;$(OCV2015_ROOT)\modules\video\src\opencl\pyrlk.cl;$(OCV2015_ROOT)\cmake\cl2cpp.cmake;%(AdditionalInputs)</AdditionalInputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(OCV2015_ROOT)\vs2015\WS\10.0\x64\modules\video\opencl_kernels_video.cpp;$(OCV2015_ROOT)\vs2015\WS\10.0\x64\modules\video\opencl_kernels_video.hpp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
     </CustomBuild>
@@ -183,7 +183,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="$(OCV2015_ROOT)/vs2015/WS/10.0/x64/ZERO_CHECK.vcxproj">
-      <Project>F7C2BCF6-9BE2-4272-AAD9-6075F4430F5C</Project>
+      <Project>68675D48-774B-4D1C-893D-6063ADB3724A</Project>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

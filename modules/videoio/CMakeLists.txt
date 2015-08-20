@@ -1,5 +1,5 @@
 set(the_description "Media I/O")
-ocv_add_module(videoio opencv_imgproc opencv_imgcodecs WRAP java python)
+ocv_add_module(videoio opencv_imgproc opencv_imgcodecs OPTIONAL opencv_androidcamera WRAP java python)
 
 # ----------------------------------------------------------------------------
 #  CMake file for videoio. See root CMakeLists.txt
@@ -7,6 +7,7 @@ ocv_add_module(videoio opencv_imgproc opencv_imgcodecs WRAP java python)
 #   Jose Luis Blanco, 2008
 # ----------------------------------------------------------------------------
 
+#if(HAVE_WINRT_CX AND NOT WINRT)
 if(WINRT_8_1)
   set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /ZW")
 endif()
@@ -32,30 +33,22 @@ file(GLOB videoio_ext_hdrs
     "${CMAKE_CURRENT_LIST_DIR}/include/opencv2/${name}/*.hpp"
     "${CMAKE_CURRENT_LIST_DIR}/include/opencv2/${name}/*.h")
 
-# Removing WinRT API headers by default
-status("  ${name}: Removing WinRT API headers by default")
-list(REMOVE_ITEM videoio_ext_hdrs "${CMAKE_CURRENT_LIST_DIR}/include/opencv2/${name}/cap_winrt.hpp")
-
 # Dependencies used by the implementation referenced
-# below are not available on WinRT 8.0.
-# Enabling it for WiRT 8.1+ only.
-if(DEFINED WINRT AND NOT DEFINED WINRT_8_0)
-
-    # WinRT detected. Adding WinRT API header
-    status("  ${name}: WinRT detected. Adding WinRT API header")
-    list(APPEND videoio_ext_hdrs "${CMAKE_CURRENT_LIST_DIR}/include/opencv2/${name}/cap_winrt.hpp")
-
-    # Adding WinRT internal sources and headers
+# below are not available on Windows Phone 8.0.
+# Enabling it for Windows Phone 8.1 only.
+if(WINRT_8_1)
     list(APPEND videoio_srcs
-        ${CMAKE_CURRENT_LIST_DIR}/src/cap_winrt_capture.cpp
-        ${CMAKE_CURRENT_LIST_DIR}/src/cap_winrt_bridge.cpp
+        ${CMAKE_CURRENT_LIST_DIR}/src/cap_winrt.cpp
+        ${CMAKE_CURRENT_LIST_DIR}/src/cap_winrt_highgui.cpp
         ${CMAKE_CURRENT_LIST_DIR}/src/cap_winrt_video.cpp
         ${CMAKE_CURRENT_LIST_DIR}/src/cap_winrt/CaptureFrameGrabber.cpp
-        ${CMAKE_CURRENT_LIST_DIR}/src/cap_winrt/MediaStreamSink.cpp)
+        ${CMAKE_CURRENT_LIST_DIR}/src/cap_winrt/MediaStreamSink.cpp
+        ${CMAKE_CURRENT_LIST_DIR}/src/cap_winrt/WinRTVideoCapture.cpp)
     list(APPEND videoio_hdrs
-        ${CMAKE_CURRENT_LIST_DIR}/src/cap_winrt_capture.hpp
-        ${CMAKE_CURRENT_LIST_DIR}/src/cap_winrt_bridge.hpp
+        ${CMAKE_CURRENT_LIST_DIR}/src/cap_winrt.hpp
+        ${CMAKE_CURRENT_LIST_DIR}/src/cap_winrt_highgui.hpp
         ${CMAKE_CURRENT_LIST_DIR}/src/cap_winrt_video.hpp
+        ${CMAKE_CURRENT_LIST_DIR}/src/cap_winrt/WinRTVideoCapture.hpp
         ${CMAKE_CURRENT_LIST_DIR}/src/cap_winrt/MFIncludes.hpp
         ${CMAKE_CURRENT_LIST_DIR}/src/cap_winrt/CaptureFrameGrabber.hpp
         ${CMAKE_CURRENT_LIST_DIR}/src/cap_winrt/MediaSink.hpp
@@ -117,6 +110,11 @@ if(HAVE_OPENNI2)
   ocv_include_directories(${OPENNI2_INCLUDE_DIR})
   list(APPEND VIDEOIO_LIBRARIES ${OPENNI2_LIBRARY})
 endif(HAVE_OPENNI2)
+
+if(HAVE_opencv_androidcamera)
+  list(APPEND videoio_srcs ${CMAKE_CURRENT_LIST_DIR}/src/cap_android.cpp)
+  add_definitions(-DHAVE_ANDROID_NATIVE_CAMERA)#TODO: remove this line
+endif(HAVE_opencv_androidcamera)
 
 if(HAVE_XIMEA)
   list(APPEND videoio_srcs ${CMAKE_CURRENT_LIST_DIR}/src/cap_ximea.cpp)
@@ -180,10 +178,6 @@ if(HAVE_INTELPERC)
   ocv_include_directories(${INTELPERC_INCLUDE_DIR})
   list(APPEND VIDEOIO_LIBRARIES ${INTELPERC_LIBRARIES})
 endif(HAVE_INTELPERC)
-
-if(HAVE_GPHOTO2)
-  list(APPEND videoio_srcs ${CMAKE_CURRENT_LIST_DIR}/src/cap_gphoto2.cpp)
-endif(HAVE_GPHOTO2)
 
 if(IOS)
   add_definitions(-DHAVE_IOS=1)

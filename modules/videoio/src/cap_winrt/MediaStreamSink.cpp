@@ -1,24 +1,71 @@
-// Copyright (c) Microsoft. All rights reserved.
+//*@@@+++@@@@******************************************************************
 //
-// The MIT License (MIT)
+// Microsoft Windows Media Foundation
+// Copyright (C) Microsoft Corporation. All rights reserved.
 //
-// Permission is hereby granted, free of charge, to any person obtaining a copy
-// of this software and associated documentation files(the "Software"), to deal
-// in the Software without restriction, including without limitation the rights
-// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-// copies of the Software, and to permit persons to whom the Software is
-// furnished to do so, subject to the following conditions :
+// Portions Copyright (c) Microsoft Open Technologies, Inc.
 //
-// The above copyright notice and this permission notice shall be included in
-// all copies or substantial portions of the Software.
-//
-// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
-// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-// THE SOFTWARE.
+//*@@@---@@@@******************************************************************
+
+//#pragma once
+
+//#include <windows.h>
+//#include <guiddef.h>
+//#include <mfidl.h>
+//#include <Mfapi.h>
+
+//#ifdef WINRT_STORE // Available in Modern Desktop SDK only
+//    #include <mfplay.h>
+//#endif
+
+//#include <mfobjects.h>
+//#include <tchar.h>
+//#include <strsafe.h>
+//#include <Mfreadwrite.h>
+//#include <new>
+//#include <map>
+//#include <vector>
+//#include <string>
+//#include <stdio.h>
+//#include <stdarg.h>
+//#include <string.h>
+
+//#ifdef _MSC_VER
+//#pragma warning(disable:4503)
+//#pragma comment(lib, "mfplat")
+//#pragma comment(lib, "mf")
+//#pragma comment(lib, "mfuuid")
+
+//// TODO: not available on ARM (WS 8.1)
+////#ifdef WINRT_STORE // Available in Modern Desktop SDK only
+////    #pragma comment(lib, "Strmiids")
+////#endif
+
+//#pragma comment(lib, "Mfreadwrite")
+
+//#if (WINVER >= 0x0602) // Available since Win 8
+//// TODO: not available on ARM (WS 8.1)
+////#ifdef WINRT_STORE // Available in Modern Desktop SDK only
+////#pragma comment(lib, "MinCore_Downlevel")
+////#endif
+//#endif // WINVER >= 0x0602
+//#endif // _MSC_VER
+
+//#include <mferror.h>
+
+//// for ComPtr usage
+//#include <wrl/client.h>
+//#ifdef __cplusplus_winrt
+//#include <agile.h>
+//#include <vccorlib.h>
+//#endif
+
+//#include <wrl\async.h>
+//#include <wrl\implements.h>
+//#include <wrl\module.h>
+//#include <wrl\wrappers\corewrappers.h>
+//#include <windows.media.capture.h>
+//#include <windows.devices.enumeration.h>
 
 #include "MediaStreamSink.hpp"
 #include "MFIncludes.hpp"
@@ -29,9 +76,11 @@ using namespace Platform;
 using namespace Windows::Foundation;
 
 MediaStreamSink::MediaStreamSink(
-    __in const MW::ComPtr<IMFMediaSink>& sink,
+//    __in const MW::ComPtr<IMFMediaSink>& sink,
+    __in const ComPtr<IMFMediaSink>& sink,
     __in DWORD id,
-    __in const MW::ComPtr<IMFMediaType>& mt,
+//    __in const MW::ComPtr<IMFMediaType>& mt,
+    __in const ComPtr<IMFMediaType>& mt,
     __in MediaSampleHandler^ sampleHandler
     )
     : _shutdown(false)
@@ -227,6 +276,7 @@ HRESULT MediaStreamSink::IsMediaTypeSupported(__in IMFMediaType *mediaType, __de
     HRESULT hr = ExceptionBoundary([this, mediaType, closestMediaType, &supported]()
     {
         auto lock = _lock.LockExclusive();
+        HRESULT hr = S_OK;
 
         if (closestMediaType != nullptr)
         {
@@ -280,6 +330,7 @@ HRESULT MediaStreamSink::SetCurrentMediaType(__in IMFMediaType *mediaType)
     return ExceptionBoundary([this, mediaType]()
     {
         auto lock = _lock.LockExclusive();
+        HRESULT hr = S_OK;
 
         CHKNULL(mediaType);
 

@@ -248,25 +248,6 @@ public:
             writeBlock();
     }
 
-    void jflush(unsigned currval, int bitIdx)
-    {
-        uchar v;
-        uchar* ptr = m_current;
-        currval |= (1 << bitIdx)-1;
-        while( bitIdx < 32 )
-        {
-            v = (uchar)(currval >> 24);
-            *ptr++ = v;
-            if( v == 255 )
-                *ptr++ = 0;
-            currval <<= 8;
-            bitIdx += 8;
-        }
-        m_current = ptr;
-        if( m_current >= m_end )
-            writeBlock();
-    }
-
     static bool createEncodeHuffmanTable( const int* src, unsigned* table, int max_size )
     {
         int  i, k;
@@ -1237,10 +1218,10 @@ void MotionJpegWriter::writeFrameData( const uchar* data, int step, int colorspa
     }
 
     strm.jputShort(0*256 + 63); // start and end of spectral selection - for
-    // sequential DCT start is 0 and end is 63
+    // sequental DCT start is 0 and end is 63
 
     strm.putByte( 0 );  // successive approximation bit position
-    // high & low - (0,0) for sequential DCT
+    // high & low - (0,0) for sequental DCT
     unsigned currval = 0, code = 0, tempval = 0;
     int bit_idx = 32;
 
@@ -1459,7 +1440,7 @@ void MotionJpegWriter::writeFrameData( const uchar* data, int step, int colorspa
     }
 
     // Flush
-    strm.jflush(currval, bit_idx);
+    JPUT_BITS((unsigned)-1, bit_idx & 31);
     strm.jputShort( 0xFFD9 ); // EOI marker
     /*printf("total dct = %.1fms, total cvt = %.1fms\n",
      total_dct*1000./cv::getTickFrequency(),

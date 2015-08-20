@@ -10,7 +10,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGUID>{13F8A5AC-A24B-4911-853E-49B9CF5A5C7D}</ProjectGUID>
+    <ProjectGUID>{7C2DFAB7-43BE-47B6-980D-2CE545F6E80C}</ProjectGUID>
     <ApplicationType>Windows Store</ApplicationType>
     <DefaultLanguage>en-US</DefaultLanguage>
     <ApplicationTypeRevision>8.2</ApplicationTypeRevision>
@@ -81,7 +81,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="$(OCV2015_ROOT)/vs2015/WS/10.0/ARM/modules/videostab/opencv_videostab.vcxproj">
-      <Project>9E3717F0-0AC2-4D67-87EF-1637B62C14DB</Project>
+      <Project>1DCD11D1-22DB-4BDE-9D87-C6D165B6C1B2</Project>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

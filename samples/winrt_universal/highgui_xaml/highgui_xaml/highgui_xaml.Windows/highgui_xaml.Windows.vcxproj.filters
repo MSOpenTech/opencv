@@ -39,4 +39,11 @@
   <ItemGroup>
     <Text Include="readme.txt" />
   </ItemGroup>
+<<<<<<< HEAD
+  <ItemGroup>
+    <Xml Include="..\..\..\..\..\data\haarcascades\haarcascade_frontalface_alt.xml" />
+    <Xml Include="..\..\..\..\..\data\haarcascades\haarcascade_eye_tree_eyeglasses.xml" />
+  </ItemGroup>
+=======
+>>>>>>> upstream/vs2015-samples
 </Project>

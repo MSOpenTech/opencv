@@ -10,7 +10,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGUID>{909D1073-679D-432E-B291-E293255B25EB}</ProjectGUID>
+    <ProjectGUID>{260B828C-2E20-4251-B6C2-2BF2CE54FF0D}</ProjectGUID>
     <ApplicationType>Windows Store</ApplicationType>
     <DefaultLanguage>en-US</DefaultLanguage>
     <ApplicationTypeRevision>8.2</ApplicationTypeRevision>
@@ -73,7 +73,7 @@
       <Optimization>Disabled</Optimization>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>$(OCV2015_ROOT)/modules/stitching/src/precomp.hpp</PrecompiledHeaderFile>
-      <ProcessorNumber>1</ProcessorNumber>
+      <ProcessorNumber>4</ProcessorNumber>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <WarningLevel>Level4</WarningLevel>
@@ -128,7 +128,7 @@
       <Optimization>MaxSpeed</Optimization>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>$(OCV2015_ROOT)/modules/stitching/src/precomp.hpp</PrecompiledHeaderFile>
-      <ProcessorNumber>1</ProcessorNumber>
+      <ProcessorNumber>4</ProcessorNumber>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <WarningLevel>Level4</WarningLevel>
@@ -176,13 +176,13 @@
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="..\..\CMakeFiles\64ca458c1c9a46f77743efdc157734da\opencl_kernels_stitching.cpp.rule">
+    <CustomBuild Include="..\..\CMakeFiles\8f00e37fd7e9b9c692105143181a2418\opencl_kernels_stitching.cpp.rule">
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Generating opencl_kernels_stitching.cpp, opencl_kernels_stitching.hpp</Message>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(OCV2015_ROOT)/vs2015/WS/10.0/x64/CMakeFiles/64ca458c1c9a46f77743efdc157734da/opencl_kernels_stitching.cpp.rule;$(OCV2015_ROOT)\modules\stitching\src\opencl\multibandblend.cl;$(OCV2015_ROOT)\modules\stitching\src\opencl\warpers.cl;$(OCV2015_ROOT)\cmake\cl2cpp.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(OCV2015_ROOT)/vs2015/WS/10.0/x64/CMakeFiles/8f00e37fd7e9b9c692105143181a2418/opencl_kernels_stitching.cpp.rule;$(OCV2015_ROOT)\modules\stitching\src\opencl\multibandblend.cl;$(OCV2015_ROOT)\modules\stitching\src\opencl\warpers.cl;$(OCV2015_ROOT)\cmake\cl2cpp.cmake;%(AdditionalInputs)</AdditionalInputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(OCV2015_ROOT)\vs2015\WS\10.0\x64\modules\stitching\opencl_kernels_stitching.cpp;$(OCV2015_ROOT)\vs2015\WS\10.0\x64\modules\stitching\opencl_kernels_stitching.hpp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Generating opencl_kernels_stitching.cpp, opencl_kernels_stitching.hpp</Message>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(OCV2015_ROOT)/vs2015/WS/10.0/x64/CMakeFiles/64ca458c1c9a46f77743efdc157734da/opencl_kernels_stitching.cpp.rule;$(OCV2015_ROOT)\modules\stitching\src\opencl\multibandblend.cl;$(OCV2015_ROOT)\modules\stitching\src\opencl\warpers.cl;$(OCV2015_ROOT)\cmake\cl2cpp.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(OCV2015_ROOT)/vs2015/WS/10.0/x64/CMakeFiles/8f00e37fd7e9b9c692105143181a2418/opencl_kernels_stitching.cpp.rule;$(OCV2015_ROOT)\modules\stitching\src\opencl\multibandblend.cl;$(OCV2015_ROOT)\modules\stitching\src\opencl\warpers.cl;$(OCV2015_ROOT)\cmake\cl2cpp.cmake;%(AdditionalInputs)</AdditionalInputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(OCV2015_ROOT)\vs2015\WS\10.0\x64\modules\stitching\opencl_kernels_stitching.cpp;$(OCV2015_ROOT)\vs2015\WS\10.0\x64\modules\stitching\opencl_kernels_stitching.hpp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
     </CustomBuild>
@@ -230,31 +230,31 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="$(OCV2015_ROOT)/vs2015/WS/10.0/x64/ZERO_CHECK.vcxproj">
-      <Project>F7C2BCF6-9BE2-4272-AAD9-6075F4430F5C</Project>
+      <Project>68675D48-774B-4D1C-893D-6063ADB3724A</Project>
     </ProjectReference>
     <ProjectReference Include="$(OCV2015_ROOT)/vs2015/WS/10.0/x64/modules/calib3d/opencv_calib3d.vcxproj">
-      <Project>9C75511F-9E61-47E0-9DE4-4491AF56B440</Project>
+      <Project>D09BE65F-10B1-4E1A-9FA6-122F5F1AD4F2</Project>
     </ProjectReference>
     <ProjectReference Include="$(OCV2015_ROOT)/vs2015/WS/10.0/x64/modules/core/opencv_core.vcxproj">
-      <Project>AD3AD579-91EB-4492-AA03-F78B231B429D</Project>
+      <Project>06249B14-7756-4B11-A8BA-CC9A5D370C5B</Project>
     </ProjectReference>
     <ProjectReference Include="$(OCV2015_ROOT)/vs2015/WS/10.0/x64/modules/features2d/opencv_features2d.vcxproj">
-      <Project>8672655A-B710-4957-A535-A110572274D8</Project>
+      <Project>9BC895E6-67BF-4F56-9F45-DE0C43942415</Project>
     </ProjectReference>
     <ProjectReference Include="$(OCV2015_ROOT)/vs2015/WS/10.0/x64/modules/flann/opencv_flann.vcxproj">
-      <Project>97FDE78A-57F0-4C07-B279-747D5EEFB399</Project>
+      <Project>F6DA038A-A3FF-425F-A51F-A6ADE874322C</Project>
     </ProjectReference>
     <ProjectReference Include="$(OCV2015_ROOT)/vs2015/WS/10.0/x64/modules/hal/opencv_hal.vcxproj">
-      <Project>770A6C51-203A-4D29-8B14-656B1E11BAA2</Project>
+      <Project>B2C85755-D08F-4AB1-A0D1-FE169016286E</Project>
     </ProjectReference>
     <ProjectReference Include="$(OCV2015_ROOT)/vs2015/WS/10.0/x64/modules/imgproc/opencv_imgproc.vcxproj">
-      <Project>D9E6EAA4-E2FC-45A7-B693-7D13D189DD06</Project>
+      <Project>98CE20FA-3398-436C-AAE1-A365DDDD6179</Project>
     </ProjectReference>
     <ProjectReference Include="$(OCV2015_ROOT)/vs2015/WS/10.0/x64/modules/ml/opencv_ml.vcxproj">
-      <Project>6CDC54F3-D602-4CFB-B78A-14B0E89A900B</Project>
+      <Project>E5A3C152-E512-441F-A129-308A531BA8EC</Project>
     </ProjectReference>
     <ProjectReference Include="$(OCV2015_ROOT)/vs2015/WS/10.0/x64/modules/objdetect/opencv_objdetect.vcxproj">
-      <Project>31F0C7B2-2745-47C5-9AFD-FEA48710DFF9</Project>
+      <Project>DEF8E1B0-8802-4266-995D-E4AE6A8B8101</Project>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

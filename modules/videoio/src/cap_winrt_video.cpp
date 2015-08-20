@@ -1,28 +1,32 @@
 // Video support with XAML
+// Microsoft Surface and Phone using Media Foundation
 
-// Copyright (c) Microsoft Open Technologies, Inc.
+// Copyright (c) 2015, Microsoft Open Technologies, Inc.
 // All rights reserved.
 //
-// (3 - clause BSD License)
+// Redistribution and use in source and binary forms, with or without modification,
+// are permitted provided that the following conditions are met:
 //
-// Redistribution and use in source and binary forms, with or without modification, are permitted provided that
-// the following conditions are met:
+// - Redistributions of source code must retain the above copyright notice,
+//   this list of conditions and the following disclaimer.
+// - Redistributions in binary form must reproduce the above copyright notice,
+//   this list of conditions and the following disclaimer in the documentation
+//   and/or other materials provided with the distribution.
+// - Neither the name of Microsoft Open Technologies, Inc. nor the names
+//   of its contributors may be used to endorse or promote products derived
+//   from this software without specific prior written permission.
 //
-// 1. Redistributions of source code must retain the above copyright notice, this list of conditions and the
-// following disclaimer.
-// 2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the
-// following disclaimer in the documentation and/or other materials provided with the distribution.
-// 3. Neither the name of the copyright holder nor the names of its contributors may be used to endorse or
-// promote products derived from this software without specific prior written permission.
-//
-// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED
-// WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
-// PARTICULAR PURPOSE ARE DISCLAIMED.IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY
-// DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES(INCLUDING, BUT NOT LIMITED TO,
-// PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
-// HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT(INCLUDING
-// NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
-// POSSIBILITY OF SUCH DAMAGE.
+// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+// AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+// THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+// PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR
+// CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+// EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+// PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+// OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+// WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+// OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
+// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #include "cap_winrt_video.hpp"
 
@@ -58,7 +62,7 @@ using namespace Windows::Devices::Enumeration;
 #pragma comment(lib, "Shlwapi")
 #endif
 
-#include "cap_winrt_bridge.hpp"
+#include "cap_winrt_highgui.hpp"
 
 Video::Video() {}
 
@@ -67,27 +71,21 @@ Video &Video::getInstance() {
     return v;
 }
 
-bool Video::isStarted() {
-    return bGrabberInited.load();
-}
-
 void Video::closeGrabber() {
     // assigning nullptr causes deref of grabber and thus closes the device
     m_frameGrabber = nullptr;
     bGrabberInited = false;
-    bGrabberInitInProgress = false;
 }
 
-// non-blocking
+
 bool Video::initGrabber(int device, int w, int h) {
     // already started?
-    if (bGrabberInited || bGrabberInitInProgress) return false;
+    if (bGrabberInited) return false;
 
     width = w;
     height = h;
 
     bGrabberInited = false;
-    bGrabberInitInProgress = true;
 
     m_deviceID = device;
 
@@ -124,7 +122,7 @@ bool Video::initGrabber(int device, int w, int h) {
             // for 24 bpp
             props->Subtype = MediaEncodingSubtypes::Rgb24;      bytesPerPixel = 3;
 
-            // XAML & WBM use BGRA8, so it would look like
+            // format used by XAML & WBM (for testing)
             // props->Subtype = MediaEncodingSubtypes::Bgra8;   bytesPerPixel = 4;
 
             props->Width = width;
@@ -136,7 +134,6 @@ bool Video::initGrabber(int device, int w, int h) {
         {
             m_frameGrabber = frameGrabber;
             bGrabberInited = true;
-            bGrabberInitInProgress = false;
             //ready = true;
             _GrabFrameAsync(frameGrabber);
         });
@@ -163,10 +160,10 @@ void Video::_GrabFrameAsync(::Media::CaptureFrameGrabber^ frameGrabber) {
         // flip
         if (bFlipImageX)
         {
-            std::lock_guard<std::mutex> lock(VideoioBridge::getInstance().inputBufferMutex);
+            std::lock_guard<std::mutex> lock(HighguiBridge::getInstance().inputBufferMutex);
 
             // ptr to input Mat data array
-            auto buf = VideoioBridge::getInstance().backInputPtr;
+            auto buf = HighguiBridge::getInstance().backInputPtr;
 
             for (unsigned int row = 0; row < height; row++)
             {
@@ -184,13 +181,19 @@ void Video::_GrabFrameAsync(::Media::CaptureFrameGrabber^ frameGrabber) {
                 pbScanline += plPitch;
                 buf += colBytes;
             }
-            VideoioBridge::getInstance().bIsFrameNew = true;
+
+            // stjong remove this later
+            char output[1024] = { 0 };
+            (void)sprintf(output, "New frame 1 [%d]\n", HighguiBridge::getInstance().frameCounter + 1);
+            OutputDebugStringA(output);
+
+            HighguiBridge::getInstance().bIsFrameNew = true;
         } else
         {
-            std::lock_guard<std::mutex> lock(VideoioBridge::getInstance().inputBufferMutex);
+            std::lock_guard<std::mutex> lock(HighguiBridge::getInstance().inputBufferMutex);
 
             // ptr to input Mat data array
-            auto buf = VideoioBridge::getInstance().backInputPtr;
+            auto buf = HighguiBridge::getInstance().backInputPtr;
 
             for (unsigned int row = 0; row < height; row++)
             {
@@ -215,11 +218,17 @@ void Video::_GrabFrameAsync(::Media::CaptureFrameGrabber^ frameGrabber) {
                 pbScanline += plPitch;
                 buf += colBytes;
             }
-            VideoioBridge::getInstance().bIsFrameNew = true;
+			
+            // remove this later
+            char output[1024] = { 0 };
+            (void)sprintf(output, "New frame 2 [%d]\n", HighguiBridge::getInstance().frameCounter + 1);
+            OutputDebugStringA(output);
+
+            HighguiBridge::getInstance().bIsFrameNew = true;
         }
         CHK(buffer->Unlock2D());
 
-        VideoioBridge::getInstance().frameCounter++;
+        HighguiBridge::getInstance().frameCounter++;
 
         if (bGrabberInited)
         {
@@ -233,10 +242,10 @@ void Video::_GrabFrameAsync(::Media::CaptureFrameGrabber^ frameGrabber) {
 // must be on UI thread
 void Video::CopyOutput() {
     {
-        std::lock_guard<std::mutex> lock(VideoioBridge::getInstance().outputBufferMutex);
+        std::lock_guard<std::mutex> lock(HighguiBridge::getInstance().outputBufferMutex);
 
-        auto inAr = VideoioBridge::getInstance().frontInputPtr;
-        auto outAr = GetData(VideoioBridge::getInstance().frontOutputBuffer->PixelBuffer);
+        auto inAr = HighguiBridge::getInstance().frontInputPtr;
+        auto outAr = GetData(HighguiBridge::getInstance().frontOutputBuffer->PixelBuffer);
 
         const unsigned int bytesPerPixel = 3;
         auto pbScanline = inAr;
@@ -272,7 +281,7 @@ void Video::CopyOutput() {
             pbScanline += plPitch;
             buf += colBytes;
         }
-        VideoioBridge::getInstance().frontOutputBuffer->PixelBuffer->Length = width * height * 4;
+        HighguiBridge::getInstance().frontOutputBuffer->PixelBuffer->Length = width * height * 4;
     }
 }
 
@@ -282,20 +291,22 @@ bool Video::listDevicesTask() {
 
     auto settings = ref new MediaCaptureInitializationSettings();
 
+    //vector <int> devices;
+
     create_task(DeviceInformation::FindAllAsync(DeviceClass::VideoCapture))
         .then([this, &ready](task<DeviceInformationCollection^> findTask)
     {
         m_devices = findTask.get();
 
-        // TODO: collect device data
-        // for (size_t i = 0; i < m_devices->Size; i++)
-        // {
-        //   .. deviceInfo;
-        //   auto d = m_devices->GetAt(i);
-        //   deviceInfo.bAvailable = true;
-        //   deviceInfo.deviceName = PlatformStringToString(d->Name);
-        //   deviceInfo.hardwareName = deviceInfo.deviceName;
-        // }
+        for (size_t i = 0; i < m_devices->Size; i++)
+        {
+            // ofVideoDevice deviceInfo;
+            auto d = m_devices->GetAt(i);
+            //deviceInfo.bAvailable = true;
+            //deviceInfo.deviceName = PlatformStringToString(d->Name);
+            //deviceInfo.hardwareName = deviceInfo.deviceName;
+            // devices.push_back(deviceInfo);
+        }
 
         ready = true;
     });

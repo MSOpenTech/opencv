@@ -42,12 +42,13 @@
 #include "precomp.hpp"
 #include "cap_intelperc.hpp"
 #include "cap_dshow.hpp"
+// Dave
+//#include "cap_winrt.hpp"
+#define WINRT_WMF (WINRT && !defined WINRT_8_0)
 
-// All WinRT versions older than 8.0 should provide classes used for video support
-#if defined(WINRT) && !defined(WINRT_8_0)
-#   include "cap_winrt_capture.hpp"
-#   include "cap_winrt_bridge.hpp"
-#   define WINRT_VIDEO
+#ifdef WINRT_WMF
+#include "cap_winrt.hpp"
+#include "cap_winrt_highgui.hpp"
 #endif
 
 #if defined _M_X64 && defined _MSC_VER && !defined CV_ICC
@@ -128,6 +129,11 @@ CV_IMPL CvCapture * cvCreateCameraCapture (int index)
 {
     int  domains[] =
     {
+#ifdef WINRT_WMF
+        CV_CAP_WINRT,
+#elif  WINRT_8_0
+        // not supported
+#endif
 #ifdef HAVE_MSMF
         CV_CAP_MSMF,
 #endif
@@ -158,6 +164,9 @@ CV_IMPL CvCapture * cvCreateCameraCapture (int index)
 #ifdef HAVE_OPENNI2
         CV_CAP_OPENNI2,
 #endif
+#ifdef HAVE_ANDROID_NATIVE_CAMERA
+        CV_CAP_ANDROID,
+#endif
 #ifdef HAVE_XIMEA
         CV_CAP_XIAPI,
 #endif
@@ -185,7 +194,8 @@ CV_IMPL CvCapture * cvCreateCameraCapture (int index)
     // try every possibly installed camera API
     for (int i = 0; domains[i] >= 0; i++)
     {
-#if defined(HAVE_MSMF)         || \
+#if defined(WINRT_WMF)         || \
+    defined(HAVE_MSMF)         || \
     defined(HAVE_TYZX)         || \
     defined(HAVE_VFW)          || \
     defined(HAVE_LIBV4L)       || \
@@ -205,6 +215,7 @@ CV_IMPL CvCapture * cvCreateCameraCapture (int index)
     defined(HAVE_OPENNI2)      || \
     defined(HAVE_XIMEA)        || \
     defined(HAVE_AVFOUNDATION) || \
+    defined(HAVE_ANDROID_NATIVE_CAMERA) || \
     defined(HAVE_GIGE_API) || \
     defined(HAVE_INTELPERC)    || \
     (0)
@@ -214,6 +225,13 @@ CV_IMPL CvCapture * cvCreateCameraCapture (int index)
 
         switch (domains[i])
         {
+#ifdef WINRT_WMF
+        case CV_CAP_WINRT:
+            capture = cvCreateCameraCapture_WinRT (index);
+            if (capture)
+                return capture;
+            break;
+#endif
 #ifdef HAVE_MSMF
         case CV_CAP_MSMF:
              capture = cvCreateCameraCapture_MSMF (index);
@@ -323,6 +341,14 @@ CV_IMPL CvCapture * cvCreateCameraCapture (int index)
             if (capture)
                 return capture;
             break;
+#endif
+
+#ifdef HAVE_ANDROID_NATIVE_CAMERA
+        case CV_CAP_ANDROID:
+            capture = cvCreateCameraCapture_Android (index);
+            if (capture)
+                return capture;
+        break;
 #endif
 
 #ifdef HAVE_XIMEA
@@ -504,11 +530,8 @@ static Ptr<IVideoCapture> IVideoCapture_create(int index)
 #ifdef HAVE_INTELPERC
         CV_CAP_INTELPERC,
 #endif
-#ifdef WINRT_VIDEO
+#ifdef WINRT_WMF
         CAP_WINRT,
-#endif
-#ifdef HAVE_GPHOTO2
-        CV_CAP_GPHOTO2,
 #endif
         -1, -1
     };
@@ -527,8 +550,7 @@ static Ptr<IVideoCapture> IVideoCapture_create(int index)
     {
 #if defined(HAVE_DSHOW)        || \
     defined(HAVE_INTELPERC)    || \
-    defined(WINRT_VIDEO)       || \
-    defined(HAVE_GPHOTO2)      || \
+    defined(WINRT_WMF)         || \
     (0)
         Ptr<IVideoCapture> capture;
 
@@ -544,17 +566,12 @@ static Ptr<IVideoCapture> IVideoCapture_create(int index)
                 capture = makePtr<VideoCapture_IntelPerC>();
                 break; // CV_CAP_INTEL_PERC
 #endif
-#ifdef WINRT_VIDEO
+#ifdef WINRT_WMF
         case CAP_WINRT:
             capture = Ptr<IVideoCapture>(new cv::VideoCapture_WinRT(index));
             if (capture)
                 return capture;
             break; // CAP_WINRT
-#endif
-#ifdef HAVE_GPHOTO2
-            case CV_CAP_GPHOTO2:
-                capture = createGPhoto2Capture(index);
-                break;
 #endif
         }
         if (capture && capture->isOpened())
@@ -569,37 +586,14 @@ static Ptr<IVideoCapture> IVideoCapture_create(int index)
 
 static Ptr<IVideoCapture> IVideoCapture_create(const String& filename)
 {
-    int  domains[] =
+    Ptr<IVideoCapture> capture;
+
+    capture = createMotionJpegCapture(filename);
+    if (capture && capture->isOpened())
     {
-        CV_CAP_ANY,
-#ifdef HAVE_GPHOTO2
-        CV_CAP_GPHOTO2,
-#endif
-        -1, -1
-    };
-
-    // try every possibly installed camera API
-    for (int i = 0; domains[i] >= 0; i++)
-    {
-        Ptr<IVideoCapture> capture;
-
-        switch (domains[i])
-        {
-        case CV_CAP_ANY:
-            capture = createMotionJpegCapture(filename);
-            break;
-#ifdef HAVE_GPHOTO2
-        case CV_CAP_GPHOTO2:
-            capture = createGPhoto2Capture(filename);
-            break;
-#endif
-        }
-
-        if (capture && capture->isOpened())
-        {
-            return capture;
-        }
+        return capture;
     }
+
     // failed open a camera
     return Ptr<IVideoCapture>();
 }
@@ -702,22 +696,21 @@ bool VideoCapture::read(OutputArray image)
 
 VideoCapture& VideoCapture::operator >> (Mat& image)
 {
-#ifdef WINRT_VIDEO
+#ifdef WINRT_WMF
     if (grab())
     {
         if (retrieve(image))
         {
-            std::lock_guard<std::mutex> lock(VideoioBridge::getInstance().inputBufferMutex);
-            VideoioBridge& bridge = VideoioBridge::getInstance();
+            std::lock_guard<std::mutex> lock(HighguiBridge::getInstance().inputBufferMutex);
 
             // double buffering
-            bridge.swapInputBuffers();
-            auto p = bridge.frontInputPtr;
+            HighguiBridge::getInstance().SwapInputBuffers();
+            auto p = HighguiBridge::getInstance().frontInputPtr;
 
-            bridge.bIsFrameNew = false;
+            HighguiBridge::getInstance().bIsFrameNew = false;
 
             // needed here because setting Mat 'image' is not allowed by OutputArray in read()
-            Mat m(bridge.getHeight(), bridge.getWidth(), CV_8UC3, p);
+            Mat m(HighguiBridge::getInstance().height, HighguiBridge::getInstance().width, CV_8UC3, p);
             image = m;
         }
     }

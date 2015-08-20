@@ -86,6 +86,34 @@
     <AppxManifest Include="Package.appxmanifest">
       <SubType>Designer</SubType>
     </AppxManifest>
+    <None Include="..\..\..\Users\ericmitt\Documents\GitHub\opencv\vs2015\WS\10.0\ARM\bin\Debug\opencv_core300d.dll">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\Users\ericmitt\Documents\GitHub\opencv\vs2015\WS\10.0\ARM\bin\Debug\opencv_imgcodecs300d.dll">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\Users\ericmitt\Documents\GitHub\opencv\vs2015\WS\10.0\ARM\bin\Debug\opencv_imgproc300d.dll">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\Users\ericmitt\Documents\GitHub\opencv\vs2015\WS\10.0\ARM\bin\Debug\opencv_ml300d.dll">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\Users\ericmitt\Documents\GitHub\opencv\vs2015\WS\10.0\ARM\bin\Debug\opencv_objdetect300d.dll">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\Users\ericmitt\Documents\GitHub\opencv\vs2015\WS\10.0\ARM\bin\Release\opencv_core300.dll">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\Users\ericmitt\Documents\GitHub\opencv\vs2015\WS\10.0\ARM\bin\Release\opencv_imgcodecs300.dll">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\Users\ericmitt\Documents\GitHub\opencv\vs2015\WS\10.0\ARM\bin\Release\opencv_imgproc300.dll">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\Users\ericmitt\Documents\GitHub\opencv\vs2015\WS\10.0\ARM\bin\Release\opencv_ml300.dll">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\Users\ericmitt\Documents\GitHub\opencv\vs2015\WS\10.0\ARM\bin\Release\opencv_objdetect300.dll">
     <None Include="..\..\..\..\vs2015\WS\10.0\ARM\bin\Debug\opencv_core300d.dll">
       <DeploymentContent>true</DeploymentContent>
     </None>

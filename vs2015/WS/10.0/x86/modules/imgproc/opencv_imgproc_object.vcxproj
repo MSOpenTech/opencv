@@ -1,3 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build" ToolsVersion="14.0">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -19,6 +20,8 @@
     <Keyword>Win32Proj</Keyword>
     <Platform>Win32</Platform>
     <ProjectName>opencv_imgproc_object</ProjectName>
+    <WindowsTargetPlatformVersion>10.0.10240.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformMinVersion>10.0.10240.0</WindowsTargetPlatformMinVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -40,17 +43,17 @@
     <Import Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
-    <PropertyGroup>
-      <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
-      <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">opencv_imgproc_object.dir\Debug\</OutDir>
-      <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">opencv_imgproc_object.dir\Debug\</IntDir>
-      <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">opencv_imgproc_object</TargetName>
-      <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.lib</TargetExt>
-      <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">opencv_imgproc_object.dir\Release\</OutDir>
-      <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">opencv_imgproc_object.dir\Release\</IntDir>
-      <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">opencv_imgproc_object</TargetName>
-      <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.lib</TargetExt>
-    </PropertyGroup>
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">opencv_imgproc_object.dir\Debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">opencv_imgproc_object.dir\Debug\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">opencv_imgproc_object</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.lib</TargetExt>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">opencv_imgproc_object.dir\Release\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">opencv_imgproc_object.dir\Release\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">opencv_imgproc_object</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.lib</TargetExt>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <AdditionalOptions> /bigobj %(AdditionalOptions)</AdditionalOptions>
@@ -66,7 +69,7 @@
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <Optimization>Disabled</Optimization>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
-      <ProcessorNumber>1</ProcessorNumber>
+      <ProcessorNumber>4</ProcessorNumber>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <WarningLevel>Level4</WarningLevel>
@@ -104,7 +107,7 @@
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <Optimization>MaxSpeed</Optimization>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
-      <ProcessorNumber>1</ProcessorNumber>
+      <ProcessorNumber>4</ProcessorNumber>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <WarningLevel>Level4</WarningLevel>
@@ -140,13 +143,13 @@
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="..\..\CMakeFiles\a904b868574ba5b62fba6f8453589f58\opencl_kernels_imgproc.cpp.rule">
+    <CustomBuild Include="..\..\CMakeFiles\6a56a4fff3fd5ce5794d01c36ad2f4e3\opencl_kernels_imgproc.cpp.rule">
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Generating opencl_kernels_imgproc.cpp, opencl_kernels_imgproc.hpp</Message>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(OCV2015_ROOT)/vs2015/WS/10.0/x86/CMakeFiles/a904b868574ba5b62fba6f8453589f58/opencl_kernels_imgproc.cpp.rule;$(OCV2015_ROOT)\modules\imgproc\src\opencl\accumulate.cl;$(OCV2015_ROOT)\modules\imgproc\src\opencl\bilateral.cl;$(OCV2015_ROOT)\modules\imgproc\src\opencl\blend_linear.cl;$(OCV2015_ROOT)\modules\imgproc\src\opencl\boxFilter.cl;$(OCV2015_ROOT)\modules\imgproc\src\opencl\calc_back_project.cl;$(OCV2015_ROOT)\modules\imgproc\src\opencl\canny.cl;$(OCV2015_ROOT)\modules\imgproc\src\opencl\clahe.cl;$(OCV2015_ROOT)\modules\imgproc\src\opencl\corner.cl;$(OCV2015_ROOT)\modules\imgproc\src\opencl\covardata.cl;$(OCV2015_ROOT)\modules\imgproc\src\opencl\cvtcolor.cl;$(OCV2015_ROOT)\modules\imgproc\src\opencl\filter2D.cl;$(OCV2015_ROOT)\modules\imgproc\src\opencl\filter2DSmall.cl;$(OCV2015_ROOT)\modules\imgproc\src\opencl\filterSepCol.cl;$(OCV2015_ROOT)\modules\imgproc\src\opencl\filterSepRow.cl;$(OCV2015_ROOT)\modules\imgproc\src\opencl\filterSep_singlePass.cl;$(OCV2015_ROOT)\modules\imgproc\src\opencl\filterSmall.cl;$(OCV2015_ROOT)\modules\imgproc\src\opencl\gftt.cl;$(OCV2015_ROOT)\modules\imgproc\src\opencl\histogram.cl;$(OCV2015_ROOT)\modules\imgproc\src\opencl\hough_lines.cl;$(OCV2015_ROOT)\modules\imgproc\src\opencl\integral_sum.cl;$(OCV2015_ROOT)\modules\imgproc\src\opencl\laplacian5.cl;$(OCV2015_ROOT)\modules\imgproc\src\opencl\match_template.cl;$(OCV2015_ROOT)\modules\imgproc\src\opencl\medianFilter.cl;$(OCV2015_ROOT)\modules\imgproc\src\opencl\moments.cl;$(OCV2015_ROOT)\modules\imgproc\src\opencl\morph.cl;$(OCV2015_ROOT)\modules\imgproc\src\opencl\precornerdetect.cl;$(OCV2015_ROOT)\modules\imgproc\src\opencl\pyr_down.cl;$(OCV2015_ROOT)\modules\imgproc\src\opencl\pyr_up.cl;$(OCV2015_ROOT)\modules\imgproc\src\opencl\remap.cl;$(OCV2015_ROOT)\modules\imgproc\src\opencl\resize.cl;$(OCV2015_ROOT)\modules\imgproc\src\opencl\threshold.cl;$(OCV2015_ROOT)\modules\imgproc\src\opencl\warp_affine.cl;$(OCV2015_ROOT)\modules\imgproc\src\opencl\warp_perspective.cl;$(OCV2015_ROOT)\cmake\cl2cpp.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(OCV2015_ROOT)/vs2015/WS/10.0/x86/CMakeFiles/6a56a4fff3fd5ce5794d01c36ad2f4e3/opencl_kernels_imgproc.cpp.rule;$(OCV2015_ROOT)\modules\imgproc\src\opencl\accumulate.cl;$(OCV2015_ROOT)\modules\imgproc\src\opencl\bilateral.cl;$(OCV2015_ROOT)\modules\imgproc\src\opencl\blend_linear.cl;$(OCV2015_ROOT)\modules\imgproc\src\opencl\boxFilter.cl;$(OCV2015_ROOT)\modules\imgproc\src\opencl\calc_back_project.cl;$(OCV2015_ROOT)\modules\imgproc\src\opencl\canny.cl;$(OCV2015_ROOT)\modules\imgproc\src\opencl\clahe.cl;$(OCV2015_ROOT)\modules\imgproc\src\opencl\corner.cl;$(OCV2015_ROOT)\modules\imgproc\src\opencl\covardata.cl;$(OCV2015_ROOT)\modules\imgproc\src\opencl\cvtcolor.cl;$(OCV2015_ROOT)\modules\imgproc\src\opencl\filter2D.cl;$(OCV2015_ROOT)\modules\imgproc\src\opencl\filter2DSmall.cl;$(OCV2015_ROOT)\modules\imgproc\src\opencl\filterSepCol.cl;$(OCV2015_ROOT)\modules\imgproc\src\opencl\filterSepRow.cl;$(OCV2015_ROOT)\modules\imgproc\src\opencl\filterSep_singlePass.cl;$(OCV2015_ROOT)\modules\imgproc\src\opencl\filterSmall.cl;$(OCV2015_ROOT)\modules\imgproc\src\opencl\gftt.cl;$(OCV2015_ROOT)\modules\imgproc\src\opencl\histogram.cl;$(OCV2015_ROOT)\modules\imgproc\src\opencl\hough_lines.cl;$(OCV2015_ROOT)\modules\imgproc\src\opencl\integral_sum.cl;$(OCV2015_ROOT)\modules\imgproc\src\opencl\laplacian5.cl;$(OCV2015_ROOT)\modules\imgproc\src\opencl\match_template.cl;$(OCV2015_ROOT)\modules\imgproc\src\opencl\medianFilter.cl;$(OCV2015_ROOT)\modules\imgproc\src\opencl\moments.cl;$(OCV2015_ROOT)\modules\imgproc\src\opencl\morph.cl;$(OCV2015_ROOT)\modules\imgproc\src\opencl\precornerdetect.cl;$(OCV2015_ROOT)\modules\imgproc\src\opencl\pyr_down.cl;$(OCV2015_ROOT)\modules\imgproc\src\opencl\pyr_up.cl;$(OCV2015_ROOT)\modules\imgproc\src\opencl\remap.cl;$(OCV2015_ROOT)\modules\imgproc\src\opencl\resize.cl;$(OCV2015_ROOT)\modules\imgproc\src\opencl\threshold.cl;$(OCV2015_ROOT)\modules\imgproc\src\opencl\warp_affine.cl;$(OCV2015_ROOT)\modules\imgproc\src\opencl\warp_perspective.cl;$(OCV2015_ROOT)\cmake\cl2cpp.cmake;%(AdditionalInputs)</AdditionalInputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(OCV2015_ROOT)\vs2015\WS\10.0\x86\modules\imgproc\opencl_kernels_imgproc.cpp;$(OCV2015_ROOT)\vs2015\WS\10.0\x86\modules\imgproc\opencl_kernels_imgproc.hpp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Generating opencl_kernels_imgproc.cpp, opencl_kernels_imgproc.hpp</Message>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(OCV2015_ROOT)/vs2015/WS/10.0/x86/CMakeFiles/a904b868574ba5b62fba6f8453589f58/opencl_kernels_imgproc.cpp.rule;$(OCV2015_ROOT)\modules\imgproc\src\opencl\accumulate.cl;$(OCV2015_ROOT)\modules\imgproc\src\opencl\bilateral.cl;$(OCV2015_ROOT)\modules\imgproc\src\opencl\blend_linear.cl;$(OCV2015_ROOT)\modules\imgproc\src\opencl\boxFilter.cl;$(OCV2015_ROOT)\modules\imgproc\src\opencl\calc_back_project.cl;$(OCV2015_ROOT)\modules\imgproc\src\opencl\canny.cl;$(OCV2015_ROOT)\modules\imgproc\src\opencl\clahe.cl;$(OCV2015_ROOT)\modules\imgproc\src\opencl\corner.cl;$(OCV2015_ROOT)\modules\imgproc\src\opencl\covardata.cl;$(OCV2015_ROOT)\modules\imgproc\src\opencl\cvtcolor.cl;$(OCV2015_ROOT)\modules\imgproc\src\opencl\filter2D.cl;$(OCV2015_ROOT)\modules\imgproc\src\opencl\filter2DSmall.cl;$(OCV2015_ROOT)\modules\imgproc\src\opencl\filterSepCol.cl;$(OCV2015_ROOT)\modules\imgproc\src\opencl\filterSepRow.cl;$(OCV2015_ROOT)\modules\imgproc\src\opencl\filterSep_singlePass.cl;$(OCV2015_ROOT)\modules\imgproc\src\opencl\filterSmall.cl;$(OCV2015_ROOT)\modules\imgproc\src\opencl\gftt.cl;$(OCV2015_ROOT)\modules\imgproc\src\opencl\histogram.cl;$(OCV2015_ROOT)\modules\imgproc\src\opencl\hough_lines.cl;$(OCV2015_ROOT)\modules\imgproc\src\opencl\integral_sum.cl;$(OCV2015_ROOT)\modules\imgproc\src\opencl\laplacian5.cl;$(OCV2015_ROOT)\modules\imgproc\src\opencl\match_template.cl;$(OCV2015_ROOT)\modules\imgproc\src\opencl\medianFilter.cl;$(OCV2015_ROOT)\modules\imgproc\src\opencl\moments.cl;$(OCV2015_ROOT)\modules\imgproc\src\opencl\morph.cl;$(OCV2015_ROOT)\modules\imgproc\src\opencl\precornerdetect.cl;$(OCV2015_ROOT)\modules\imgproc\src\opencl\pyr_down.cl;$(OCV2015_ROOT)\modules\imgproc\src\opencl\pyr_up.cl;$(OCV2015_ROOT)\modules\imgproc\src\opencl\remap.cl;$(OCV2015_ROOT)\modules\imgproc\src\opencl\resize.cl;$(OCV2015_ROOT)\modules\imgproc\src\opencl\threshold.cl;$(OCV2015_ROOT)\modules\imgproc\src\opencl\warp_affine.cl;$(OCV2015_ROOT)\modules\imgproc\src\opencl\warp_perspective.cl;$(OCV2015_ROOT)\cmake\cl2cpp.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(OCV2015_ROOT)/vs2015/WS/10.0/x86/CMakeFiles/6a56a4fff3fd5ce5794d01c36ad2f4e3/opencl_kernels_imgproc.cpp.rule;$(OCV2015_ROOT)\modules\imgproc\src\opencl\accumulate.cl;$(OCV2015_ROOT)\modules\imgproc\src\opencl\bilateral.cl;$(OCV2015_ROOT)\modules\imgproc\src\opencl\blend_linear.cl;$(OCV2015_ROOT)\modules\imgproc\src\opencl\boxFilter.cl;$(OCV2015_ROOT)\modules\imgproc\src\opencl\calc_back_project.cl;$(OCV2015_ROOT)\modules\imgproc\src\opencl\canny.cl;$(OCV2015_ROOT)\modules\imgproc\src\opencl\clahe.cl;$(OCV2015_ROOT)\modules\imgproc\src\opencl\corner.cl;$(OCV2015_ROOT)\modules\imgproc\src\opencl\covardata.cl;$(OCV2015_ROOT)\modules\imgproc\src\opencl\cvtcolor.cl;$(OCV2015_ROOT)\modules\imgproc\src\opencl\filter2D.cl;$(OCV2015_ROOT)\modules\imgproc\src\opencl\filter2DSmall.cl;$(OCV2015_ROOT)\modules\imgproc\src\opencl\filterSepCol.cl;$(OCV2015_ROOT)\modules\imgproc\src\opencl\filterSepRow.cl;$(OCV2015_ROOT)\modules\imgproc\src\opencl\filterSep_singlePass.cl;$(OCV2015_ROOT)\modules\imgproc\src\opencl\filterSmall.cl;$(OCV2015_ROOT)\modules\imgproc\src\opencl\gftt.cl;$(OCV2015_ROOT)\modules\imgproc\src\opencl\histogram.cl;$(OCV2015_ROOT)\modules\imgproc\src\opencl\hough_lines.cl;$(OCV2015_ROOT)\modules\imgproc\src\opencl\integral_sum.cl;$(OCV2015_ROOT)\modules\imgproc\src\opencl\laplacian5.cl;$(OCV2015_ROOT)\modules\imgproc\src\opencl\match_template.cl;$(OCV2015_ROOT)\modules\imgproc\src\opencl\medianFilter.cl;$(OCV2015_ROOT)\modules\imgproc\src\opencl\moments.cl;$(OCV2015_ROOT)\modules\imgproc\src\opencl\morph.cl;$(OCV2015_ROOT)\modules\imgproc\src\opencl\precornerdetect.cl;$(OCV2015_ROOT)\modules\imgproc\src\opencl\pyr_down.cl;$(OCV2015_ROOT)\modules\imgproc\src\opencl\pyr_up.cl;$(OCV2015_ROOT)\modules\imgproc\src\opencl\remap.cl;$(OCV2015_ROOT)\modules\imgproc\src\opencl\resize.cl;$(OCV2015_ROOT)\modules\imgproc\src\opencl\threshold.cl;$(OCV2015_ROOT)\modules\imgproc\src\opencl\warp_affine.cl;$(OCV2015_ROOT)\modules\imgproc\src\opencl\warp_perspective.cl;$(OCV2015_ROOT)\cmake\cl2cpp.cmake;%(AdditionalInputs)</AdditionalInputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(OCV2015_ROOT)\vs2015\WS\10.0\x86\modules\imgproc\opencl_kernels_imgproc.cpp;$(OCV2015_ROOT)\vs2015\WS\10.0\x86\modules\imgproc\opencl_kernels_imgproc.hpp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkObjects>
     </CustomBuild>
@@ -222,7 +225,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="$(OCV2015_ROOT)/vs2015/WS/10.0/x86/ZERO_CHECK.vcxproj">
-      <Project>A352CFBE-D001-4C41-AD8B-1D9D2AD17AA0</Project>
+      <Project>CAAB0C27-7648-48A2-A4AC-D721B6A42257</Project>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

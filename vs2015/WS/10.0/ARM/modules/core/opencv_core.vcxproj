@@ -1,3 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build" ToolsVersion="14.0">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|ARM">
@@ -10,7 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGUID>{0316DD57-4D5D-4E1A-88B2-6534F3107542}</ProjectGUID>
+    <ProjectGUID>{ECE18095-8161-4B36-8639-62A3B6FA2E16}</ProjectGUID>
     <ApplicationType>Windows Store</ApplicationType>
     <DefaultLanguage>en-US</DefaultLanguage>
     <ApplicationTypeRevision>8.2</ApplicationTypeRevision>
@@ -19,6 +20,8 @@
     <Keyword>Win32Proj</Keyword>
     <Platform>ARM</Platform>
     <ProjectName>opencv_core</ProjectName>
+    <WindowsTargetPlatformVersion>10.0.10240.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformMinVersion>10.0.10240.0</WindowsTargetPlatformMinVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'" Label="Configuration">
@@ -40,21 +43,21 @@
     <Import Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
-    <PropertyGroup>
-      <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
-      <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">$(OCV2015_ROOT)\vs2015\WS\10.0\ARM\bin\Debug\</OutDir>
-      <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">opencv_core.dir\Debug\</IntDir>
-      <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">opencv_core300d</TargetName>
-      <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">.dll</TargetExt>
-      <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">false</LinkIncremental>
-      <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">true</GenerateManifest>
-      <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">$(OCV2015_ROOT)\vs2015\WS\10.0\ARM\bin\Release\</OutDir>
-      <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">opencv_core.dir\Release\</IntDir>
-      <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">opencv_core300</TargetName>
-      <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">.dll</TargetExt>
-      <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">false</LinkIncremental>
-      <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">true</GenerateManifest>
-    </PropertyGroup>
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">$(OCV2015_ROOT)\vs2015\WS\10.0\ARM\bin\Debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">opencv_core.dir\Debug\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">opencv_core300d</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">.dll</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">$(OCV2015_ROOT)\vs2015\WS\10.0\ARM\bin\Release\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">opencv_core.dir\Release\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">opencv_core300</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">.dll</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">true</GenerateManifest>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">
     <ClCompile>
       <AdditionalOptions> /bigobj %(AdditionalOptions)</AdditionalOptions>
@@ -72,7 +75,7 @@
       <Optimization>Disabled</Optimization>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>$(OCV2015_ROOT)/modules/core/src/precomp.hpp</PrecompiledHeaderFile>
-      <ProcessorNumber>1</ProcessorNumber>
+      <ProcessorNumber>4</ProcessorNumber>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <WarningLevel>Level4</WarningLevel>
@@ -126,7 +129,7 @@
       <Optimization>MaxSpeed</Optimization>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>$(OCV2015_ROOT)/modules/core/src/precomp.hpp</PrecompiledHeaderFile>
-      <ProcessorNumber>1</ProcessorNumber>
+      <ProcessorNumber>4</ProcessorNumber>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <WarningLevel>Level4</WarningLevel>
@@ -174,13 +177,13 @@
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="..\..\CMakeFiles\6c43a80e3144f10d409d7daa6f54dfe3\opencl_kernels_core.cpp.rule">
+    <CustomBuild Include="..\..\CMakeFiles\ed096f85aa8fc3124d4b9a8bc4bdbbe2\opencl_kernels_core.cpp.rule">
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">Generating opencl_kernels_core.cpp, opencl_kernels_core.hpp</Message>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">$(OCV2015_ROOT)/vs2015/WS/10.0/ARM/CMakeFiles/6c43a80e3144f10d409d7daa6f54dfe3/opencl_kernels_core.cpp.rule;$(OCV2015_ROOT)\modules\core\src\opencl\arithm.cl;$(OCV2015_ROOT)\modules\core\src\opencl\convert.cl;$(OCV2015_ROOT)\modules\core\src\opencl\copymakeborder.cl;$(OCV2015_ROOT)\modules\core\src\opencl\copyset.cl;$(OCV2015_ROOT)\modules\core\src\opencl\fft.cl;$(OCV2015_ROOT)\modules\core\src\opencl\flip.cl;$(OCV2015_ROOT)\modules\core\src\opencl\gemm.cl;$(OCV2015_ROOT)\modules\core\src\opencl\inrange.cl;$(OCV2015_ROOT)\modules\core\src\opencl\lut.cl;$(OCV2015_ROOT)\modules\core\src\opencl\meanstddev.cl;$(OCV2015_ROOT)\modules\core\src\opencl\minmaxloc.cl;$(OCV2015_ROOT)\modules\core\src\opencl\mixchannels.cl;$(OCV2015_ROOT)\modules\core\src\opencl\mulspectrums.cl;$(OCV2015_ROOT)\modules\core\src\opencl\normalize.cl;$(OCV2015_ROOT)\modules\core\src\opencl\reduce.cl;$(OCV2015_ROOT)\modules\core\src\opencl\reduce2.cl;$(OCV2015_ROOT)\modules\core\src\opencl\repeat.cl;$(OCV2015_ROOT)\modules\core\src\opencl\set_identity.cl;$(OCV2015_ROOT)\modules\core\src\opencl\split_merge.cl;$(OCV2015_ROOT)\modules\core\src\opencl\transpose.cl;$(OCV2015_ROOT)\cmake\cl2cpp.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">$(OCV2015_ROOT)/vs2015/WS/10.0/ARM/CMakeFiles/ed096f85aa8fc3124d4b9a8bc4bdbbe2/opencl_kernels_core.cpp.rule;$(OCV2015_ROOT)\modules\core\src\opencl\arithm.cl;$(OCV2015_ROOT)\modules\core\src\opencl\convert.cl;$(OCV2015_ROOT)\modules\core\src\opencl\copymakeborder.cl;$(OCV2015_ROOT)\modules\core\src\opencl\copyset.cl;$(OCV2015_ROOT)\modules\core\src\opencl\fft.cl;$(OCV2015_ROOT)\modules\core\src\opencl\flip.cl;$(OCV2015_ROOT)\modules\core\src\opencl\gemm.cl;$(OCV2015_ROOT)\modules\core\src\opencl\inrange.cl;$(OCV2015_ROOT)\modules\core\src\opencl\lut.cl;$(OCV2015_ROOT)\modules\core\src\opencl\meanstddev.cl;$(OCV2015_ROOT)\modules\core\src\opencl\minmaxloc.cl;$(OCV2015_ROOT)\modules\core\src\opencl\mixchannels.cl;$(OCV2015_ROOT)\modules\core\src\opencl\mulspectrums.cl;$(OCV2015_ROOT)\modules\core\src\opencl\normalize.cl;$(OCV2015_ROOT)\modules\core\src\opencl\reduce.cl;$(OCV2015_ROOT)\modules\core\src\opencl\reduce2.cl;$(OCV2015_ROOT)\modules\core\src\opencl\repeat.cl;$(OCV2015_ROOT)\modules\core\src\opencl\set_identity.cl;$(OCV2015_ROOT)\modules\core\src\opencl\split_merge.cl;$(OCV2015_ROOT)\modules\core\src\opencl\transpose.cl;$(OCV2015_ROOT)\cmake\cl2cpp.cmake;%(AdditionalInputs)</AdditionalInputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">$(OCV2015_ROOT)\vs2015\WS\10.0\ARM\modules\core\opencl_kernels_core.cpp;$(OCV2015_ROOT)\vs2015\WS\10.0\ARM\modules\core\opencl_kernels_core.hpp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">Generating opencl_kernels_core.cpp, opencl_kernels_core.hpp</Message>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">$(OCV2015_ROOT)/vs2015/WS/10.0/ARM/CMakeFiles/6c43a80e3144f10d409d7daa6f54dfe3/opencl_kernels_core.cpp.rule;$(OCV2015_ROOT)\modules\core\src\opencl\arithm.cl;$(OCV2015_ROOT)\modules\core\src\opencl\convert.cl;$(OCV2015_ROOT)\modules\core\src\opencl\copymakeborder.cl;$(OCV2015_ROOT)\modules\core\src\opencl\copyset.cl;$(OCV2015_ROOT)\modules\core\src\opencl\fft.cl;$(OCV2015_ROOT)\modules\core\src\opencl\flip.cl;$(OCV2015_ROOT)\modules\core\src\opencl\gemm.cl;$(OCV2015_ROOT)\modules\core\src\opencl\inrange.cl;$(OCV2015_ROOT)\modules\core\src\opencl\lut.cl;$(OCV2015_ROOT)\modules\core\src\opencl\meanstddev.cl;$(OCV2015_ROOT)\modules\core\src\opencl\minmaxloc.cl;$(OCV2015_ROOT)\modules\core\src\opencl\mixchannels.cl;$(OCV2015_ROOT)\modules\core\src\opencl\mulspectrums.cl;$(OCV2015_ROOT)\modules\core\src\opencl\normalize.cl;$(OCV2015_ROOT)\modules\core\src\opencl\reduce.cl;$(OCV2015_ROOT)\modules\core\src\opencl\reduce2.cl;$(OCV2015_ROOT)\modules\core\src\opencl\repeat.cl;$(OCV2015_ROOT)\modules\core\src\opencl\set_identity.cl;$(OCV2015_ROOT)\modules\core\src\opencl\split_merge.cl;$(OCV2015_ROOT)\modules\core\src\opencl\transpose.cl;$(OCV2015_ROOT)\cmake\cl2cpp.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">$(OCV2015_ROOT)/vs2015/WS/10.0/ARM/CMakeFiles/ed096f85aa8fc3124d4b9a8bc4bdbbe2/opencl_kernels_core.cpp.rule;$(OCV2015_ROOT)\modules\core\src\opencl\arithm.cl;$(OCV2015_ROOT)\modules\core\src\opencl\convert.cl;$(OCV2015_ROOT)\modules\core\src\opencl\copymakeborder.cl;$(OCV2015_ROOT)\modules\core\src\opencl\copyset.cl;$(OCV2015_ROOT)\modules\core\src\opencl\fft.cl;$(OCV2015_ROOT)\modules\core\src\opencl\flip.cl;$(OCV2015_ROOT)\modules\core\src\opencl\gemm.cl;$(OCV2015_ROOT)\modules\core\src\opencl\inrange.cl;$(OCV2015_ROOT)\modules\core\src\opencl\lut.cl;$(OCV2015_ROOT)\modules\core\src\opencl\meanstddev.cl;$(OCV2015_ROOT)\modules\core\src\opencl\minmaxloc.cl;$(OCV2015_ROOT)\modules\core\src\opencl\mixchannels.cl;$(OCV2015_ROOT)\modules\core\src\opencl\mulspectrums.cl;$(OCV2015_ROOT)\modules\core\src\opencl\normalize.cl;$(OCV2015_ROOT)\modules\core\src\opencl\reduce.cl;$(OCV2015_ROOT)\modules\core\src\opencl\reduce2.cl;$(OCV2015_ROOT)\modules\core\src\opencl\repeat.cl;$(OCV2015_ROOT)\modules\core\src\opencl\set_identity.cl;$(OCV2015_ROOT)\modules\core\src\opencl\split_merge.cl;$(OCV2015_ROOT)\modules\core\src\opencl\transpose.cl;$(OCV2015_ROOT)\cmake\cl2cpp.cmake;%(AdditionalInputs)</AdditionalInputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">$(OCV2015_ROOT)\vs2015\WS\10.0\ARM\modules\core\opencl_kernels_core.cpp;$(OCV2015_ROOT)\vs2015\WS\10.0\ARM\modules\core\opencl_kernels_core.hpp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">false</LinkObjects>
     </CustomBuild>
@@ -295,7 +298,6 @@
     <ClCompile Include="..\..\..\..\..\..\modules\core\src\opengl.cpp" />
     <ClCompile Include="..\..\..\..\..\..\modules\core\src\out.cpp" />
     <ClCompile Include="..\..\..\..\..\..\modules\core\src\parallel.cpp" />
-    <ClCompile Include="..\..\..\..\..\..\modules\core\src\parallel_pthreads.cpp" />
     <ClCompile Include="..\..\..\..\..\..\modules\core\src\pca.cpp" />
     <ClCompile Include="..\..\..\..\..\..\modules\core\src\persistence.cpp" />
     <ClCompile Include="..\..\..\..\..\..\modules\core\src\rand.cpp" />
@@ -336,13 +338,13 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="$(OCV2015_ROOT)/vs2015/WS/10.0/ARM/ZERO_CHECK.vcxproj">
-      <Project>14BF26F8-F9CC-4B1D-AF14-75250463B102</Project>
+      <Project>CCCBEF53-2327-49BA-A925-CFF559F71ADD</Project>
     </ProjectReference>
     <ProjectReference Include="$(OCV2015_ROOT)/vs2015/WS/10.0/ARM/modules/hal/opencv_hal.vcxproj">
-      <Project>ED6F12A1-E1A9-4D89-A606-8F299A1B3E2A</Project>
+      <Project>B1267A35-BDEC-4C85-9266-F5D250AC4209</Project>
     </ProjectReference>
-    <ProjectReference Include="$(OCV2015_ROOT)/vs2015/WS/10.0/ARM/3rdparty/zlib/zlib.vcxproj">
-      <Project>1D0DEE65-ED23-48AA-9E4B-201225935D01</Project>
+    <ProjectReference Include="..\..\3rdparty\zlib\zlib.vcxproj">
+      <Project>{2e5d6147-8c9c-4c6a-85f5-6e64874166bd}</Project>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -278,7 +278,6 @@ CvCaptureCAM_DC1394_v2_CPP::CvCaptureCAM_DC1394_v2_CPP()
     dcCam = 0;
     isoSpeed = 400;
     fps = 15;
-    // Resetted the value here to 1 in order to ensure only a single frame is stored in the buffer!
     nDMABufs = 8;
     started = false;
     cameraId = 0;
@@ -689,8 +688,6 @@ double CvCaptureCAM_DC1394_v2_CPP::getProperty(int propId) const
         break;
     case CV_CAP_PROP_ISO_SPEED:
         return (double) isoSpeed;
-    case CV_CAP_PROP_BUFFERSIZE:
-        return (double) nDMABufs;
     default:
         if (propId<CV_CAP_PROP_MAX_DC1394 && dc1394properties[propId]!=-1
             && dcCam)
@@ -737,11 +734,6 @@ bool CvCaptureCAM_DC1394_v2_CPP::setProperty(int propId, double value)
         if(started)
           return false;
         isoSpeed = cvRound(value);
-        break;
-    case CV_CAP_PROP_BUFFERSIZE:
-        if(started)
-            return false;
-        nDMABufs = value;
         break;
         //The code below is based on coriander, callbacks.c:795, refer to case RANGE_MENU_MAN :
          default:

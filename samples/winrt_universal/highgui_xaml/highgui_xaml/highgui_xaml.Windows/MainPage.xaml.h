@@ -1,4 +1,4 @@
-﻿//
+//
 // MainPage.xaml.h
 // Declaration of the MainPage class.
 //
@@ -30,5 +30,6 @@ namespace highgui_xaml
         void OnVisibilityChanged(Platform::Object ^sender, Windows::UI::Core::VisibilityChangedEventArgs ^e);
 
         bool grabberStarted;
+        void comboBox_SelectionChanged(Platform::Object^ sender, Windows::UI::Xaml::Controls::SelectionChangedEventArgs^ e);
     };
 }

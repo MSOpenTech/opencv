@@ -9,10 +9,18 @@
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <TextBlock HorizontalAlignment="Left" Margin="20,35,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="24">
-        	<Run Text="OpenCV: videoio implementation using XAML and Universal App Framework"/>
+        	<Run Text="OpenCV:::  videoio implementation using XAML and Universal App Framework"/>
         	<Run/>
         </TextBlock>
         <Image Name="cvImage" HorizontalAlignment="Left" Height="480" Margin="20,100,0,0" VerticalAlignment="Top" Width="640"/>
+        <ComboBox x:Name="MyComboBox" HorizontalAlignment="Left" Margin="677,79,0,0" VerticalAlignment="Top" Width="337" SelectionChanged="comboBox_SelectionChanged" >
+            <x:String>Passthrough</x:String>
+            <x:String>Gray</x:String>
+            <x:String>Shades</x:String>
+            <x:String>Canny</x:String>
+            <x:String>Contour</x:String>
+            <x:String>Face Detect</x:String>
+        </ComboBox>
         <!--Slider Name="cvSlider" Visibility="Collapsed" HorizontalAlignment="Left" Margin="20,610,0,0" VerticalAlignment="Top" Width="640"/>
         <TextBlock HorizontalAlignment="Left" Margin="20,670,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="18">
             <Run Text="Move slider to adjust threshold"/>
